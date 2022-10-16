@@ -1,0 +1,65 @@
+﻿@model CNPM.Models.KhachHang
+
+@{
+    ViewBag.Title = "XoaKhachHang";
+    Layout = "~/Views/Shares/_LayoutAdmin.cshtml";
+}
+
+
+
+<h3>Bạn có muốn xóa không ?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên khách hàng 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenKH)
+        </dd>
+
+        <dt>
+            Địa chỉ 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaChi)
+        </dd>
+
+        <dt>
+            Số điện thoại 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            Tên đăng nhập 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDangNhap)
+        </dd>
+
+        <dt>
+            Mật khẩu 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mathau)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

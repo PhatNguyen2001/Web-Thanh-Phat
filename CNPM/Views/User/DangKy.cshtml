@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/Shares/_Layout.cshtml";
+}
+
+<table align="center" style="margin-bottom:50px">
+    <h2 style="text-align:center">Đăng ký tài khoản</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height:40px">
+            <td>Họ Tên :</td>
+            <td>
+                @Html.TextBox("HoTen")
+                @ViewData["Loi1"]
+            </td>
+
+        </tr>
+        <tr style="height:40px">
+            <td>Tên Đăng Nhập</td>
+            <td>
+                @Html.TextBox("TenDN")
+                @ViewData["Loi2"]
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Mật Khẩu</td>
+            <td>
+                @Html.TextBox("MatKhau")
+                @ViewData["Loi3"]
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Xác Nhận Mật Khẩu</td>
+            <td>
+                @Html.TextBox("MatKhau2")
+                @ViewData["Loi4"]
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Số Điện Thoại</td>
+            <td>
+                @Html.TextBox("SDT")
+                @ViewData["Loi5"]
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td>Địa Chỉ</td>
+            <td>
+                @Html.TextBox("DiaChi")
+                @ViewData["Loi6"]
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Đăng Kí" />
+            </td>
+        </tr>
+
+    }
+
+</table>
+
+

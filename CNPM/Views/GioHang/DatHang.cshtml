@@ -1,0 +1,142 @@
+﻿@using CNPM.Models;
+@model List<GioHang>
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shares/_Layout.cshtml";
+}
+
+
+<div class="container"  style="padding-top:200px ; padding-bottom:200px">
+    <h2 style="text-align:center ; margin-top:40px">Thông Tin Đặt Hàng </h2>
+    <table id="cart" class="table table-hover table-condensed">
+        <thead>
+            <tr>
+                <th style="width:30%">Hinh anh </th>
+                <th style="width:30%" class="text-center">Tên sản phẩm</th>
+                <th style="width:10% ">Giá</th>
+                <th style="width:20% ">Số lượng</th>
+                <th style="width:22%" class="text-center">Thành tiền</th>
+                <th style="width:22%"></th>
+                <th style="width:22%" "></th>
+
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td data-th="Product">
+                        <div class="row">
+                            <div class="col-sm-2 hidden-xs">
+                                <img src="~/HinhMatHang/@item.sHinhAnh" alt="Sản phẩm " class="img-responsive" width="100">
+                            </div>
+
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col-sm-10">
+                            <h4 class="nomargin text-center">@item.sTenMH</h4>
+                        </div>
+
+                    </td>
+
+                    <td data-th="Price">@String.Format("{0:C3}", @item.dDonGia)  </td>
+                    <td data-th="Quantity">
+                        @item.iSoLuong
+                    </td>
+                    <td data-th="Subtotal" class="text-center"> @String.Format("{0:C3}", @item.dThanhTien)</td>
+
+
+
+
+
+
+
+
+                </tr>
+
+            }
+
+        </tbody>
+        <tfoot>
+            <tr class="visible-xs">
+                <td class="text-center" style="font-weight:bold ;color:red">
+                    <strong>Số lượng sản phẩm : @ViewBag.Tongsoluong</strong>
+                </td>
+                <td colspan="2" align="center" style="font-weight:bold ;color:red">
+                    <strong>Tổng tiền : @String.Format("{0:C3} VND", @ViewBag.Tongtien) </strong>
+                </td>
+                <td colspan="3">
+
+                    <a href="@Url.Action("GioHang" , "GioHang")" class="btn btn-success btn-info">Trở về giở hàng  <i class="fa fa-angle-right"></i></a>
+                </td>
+
+            </tr>
+
+        </tfoot>
+    </table>
+
+
+    <h2 style="text-align:center ; margin-top:60px "> Thông tin đặt hàng  </h2>
+    @{
+        KhachHang kh = (KhachHang)Session["TaiKhoan"];
+    }
+    <table align="center" style="margin-bottom:50px">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            <tr style="height:40px">
+                <td> Họ và tên khách hàng : </td>
+                <td> @kh.TenKH</td>
+
+            </tr>
+            <tr style="height:40px">
+                <td> Địa chỉ : </td>
+                <td> @kh.DiaChi</td>
+
+            </tr>
+            <tr style="height:40px">
+                <td> Số điện thoại :</td>
+                <td> @kh.SDT</td>
+            </tr>
+            <tr style="height:40px">
+                <td> Ngày đặt :</td>
+                <td style="font-weight:bold"> @DateTime.Now.ToShortDateString() </td>
+            </tr>
+            <tr style="height:40px">
+                <td> Ngày giao hàng : </td>
+                <td style="font-weight:bold">
+                    <input type="date" name="ngaygiao" />
+                </td>
+
+            </tr>
+            <tr style="height:40px">
+                <td></td>
+                <td>
+                    <input type="submit" value="Đặt Hàng " />
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

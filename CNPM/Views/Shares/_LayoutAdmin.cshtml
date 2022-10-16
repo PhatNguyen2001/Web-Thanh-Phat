@@ -1,0 +1,53 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="~/Assets/Admin/css/styles.css" rel="stylesheet" />
+    <link href="~/Assets/Page/css/Style2.css" rel="stylesheet" />
+    <link href="~/Assets/Page/assets/themify-icons-font/themify-icons/themify-icons.css" rel="stylesheet" />
+
+
+</head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div class="border-end bg-white" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom bg-light">Admin</div>
+                <div class="list-group list-group-flush">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="@Url.Action("MatHang" , "Admin")">Quản lý sản phẩm </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="@Url.Action("DonDatHang" , "Admin")">Đơn đặt hàng </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="@Url.Action("KhachHang" , "Admin")" >Khách hàng </a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="@Url.Action("ChiTietDDH" ,"Admin")">Chi tiết đơn hàng</a>
+                    
+                </div>
+            </div>
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <div class="container-fluid">
+
+                    </div>
+                </nav>
+                <!-- Page content-->
+                @RenderBody()
+                <!-- Bootstrap core JS-->
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+                <!-- Core theme JS-->
+                <script src="~/Assets/Admin/js/scripts.js"></script>
+                @RenderSection("upload", required: false)
+
+
+</body>
+</html>

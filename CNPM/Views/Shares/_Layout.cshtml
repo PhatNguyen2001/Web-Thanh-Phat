@@ -1,0 +1,149 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Shop Thành Phát </title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="~/Assets/Page/assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="~/Assets/Page/css/styles.css" rel="stylesheet" />
+    <link href="~/Assets/Page/css/Style2.css" rel="stylesheet" />
+    <link href="~/Assets/Page/assets/themify-icons-font/themify-icons/themify-icons.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="@Url.Action("Index" , "Home")" title="Home" class="a-logo router-link-active"> <img src="~/HinhMatHang/logo.jpg" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="@Url.Action("Index" , "Home")">Trang chủ</a></li>
+                    <li class="nav-item">
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Childs" , "Home" , new { id=1 })">Đồ trẻ em</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Male" , "Home" , new { id=2 })">Đồ nam</a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Female" , "Home" , new { id=3 })">Đồ nữ </a></li>
+                    <li class="nav-item"><a class="nav-link" href="@Url.Action("Item" , "Home" , new { id=4 })">Phụ kiện </a></li>
+                    <li class="nav-item  ">
+
+                        <form class="d-flex">
+                            <input class="form-control me-2" name="search" type="text" placeholder="Search">
+                            <button class="btn btn-primary" type="button">Search</button>
+                        </form>
+
+
+
+                    </li>
+                    <li>
+                        @RenderPage("~/Views/GioHang/GioHangPartial.cshtml")
+                    </li>
+                </ul>
+
+                @if (Session["TaiKhoan"] == null)
+                {
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("DangKy" , "User")">Đăng ký</a></li>
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("DangNhap" , "User")">Đăng nhập</a></li>
+                    </ul>
+                }
+                else
+                {
+
+
+                    <a href="" style="text-decoration:none ; color:black ; line-height:20px ; padding:10px ; font-weight:40px"> <i class="ti-user"></i></a>
+
+
+
+                }
+
+
+
+
+
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+        <div class="container mt-3">
+
+
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+                <!-- Indicators -->
+                <ul class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ul>
+
+                <!-- The slideshow -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="~/HinhMatHang/banner.png" alt="" width="1100" height="500">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/HinhMatHang/sale1.jpg" alt="" width="1100" height="500">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/HinhMatHang/sale.jpg" width="1100" height="500">
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+
+        </div>
+
+        </div>
+
+
+    </header>
+
+    <!-- Section-->
+    @RenderBody()
+    <!-- Footer-->
+
+    <div id="footer">
+        <div class="social-list">
+            <a href=""> <i class="ti-facebook"></i></a>
+            <a href=""> <i class="ti-instagram"></i></a>
+            <a href=""> <i class="ti-youtube"></i></a>
+            <a href=""> <i class="ti-pinterest"></i></a>
+            <a href=""> <i class="ti-twitter"></i></a>
+            <a href=""> <i class="ti-linkedin"></i></a>
+        </div>
+    </div>
+    @RenderSection("upload", required: false)
+
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    @RenderSection("upload", required: false)
+</body>
+</html>

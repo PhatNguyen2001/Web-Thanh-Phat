@@ -1,0 +1,126 @@
+﻿@model IEnumerable<CNPM.Models.MatHang>
+
+@{
+    ViewBag.Title = "MatHang";
+    Layout = "~/Views/Shares/_LayoutAdmin.cshtml";
+}
+
+@helper TrunCate(String input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+
+
+<p>
+    @Html.ActionLink("Create New", "ThemMatHang")
+</p>
+
+
+                
+
+
+
+
+
+
+<h2 class="text-center">Các mặt hàng </h2>
+<div >
+    <table id="cart" class="table table-hover table-condensed">
+        <thead>
+            <tr >
+                <th style="width:30%">Hinh anh </th>
+                <th style="width:30%" class="text-center" >Tên sản phẩm</th>
+                <th style="width:10%">Giá</th>
+                <th style="width:10%" >Số lượng tồn </th>
+                <th style="width:40%"></th>
+                
+
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td data-th="Product">
+                    <div class="row">
+                        <div class="col-sm-2 hidden-xs">
+                            <img src="~/HinhMatHang/@item.HinhAnh" alt="Sản phẩm " class="img-responsive" width="100">
+                        </div>
+
+                    </div>
+                </td>
+                <td>
+                    <div class="col-sm-10">
+                        <h4 class="nomargin text-center">@item.TenMatHang</h4>
+                    </div>
+
+                </td>
+
+                <td data-th="Price">@String.Format("{0:C3}", @item.DonGia)  </td>
+                <td data-th="Quantity">
+                    @item.SoLuongTon
+                </td>
+
+
+                <td class="actions" data-th="">
+                    <a href="@Url.Action("SuaMatHang" , "Admin" , new { id = item.MaMH })" class="btn btn-info"> <i class="ti-pencil"></i> </a> |
+
+
+                
+                
+                    <a href="@Url.Action("Details" , "Home", new { id = item.MaMH })" class="btn btn-info"><i class="ti-more"></i> </a> |
+
+
+               
+                    <a href="@Url.Action("XoaMatHang" , "Admin", new { id = item.MaMH } )" class="btn btn-info"> <i class="ti-trash"></i> </a>
+
+
+                </td>
+                
+
+
+
+
+
+            </tr>
+            }
+
+
+
+        </tbody>
+        <tfoot>
+            <tr class="visible-xs">
+                <td  style="font-weight:bold ;color:red">
+                  
+                </td>
+                <td colspan="2" align="center" style="font-weight:bold ;color:red">
+                   
+                </td>
+                <td colspan="4" align="right">
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                  
+                </td>
+
+
+                <td colspan="6" align="right">
+                    
+                </td>
+
+
+            </tr>
+        </tfoot>
+    </table>
+</div>

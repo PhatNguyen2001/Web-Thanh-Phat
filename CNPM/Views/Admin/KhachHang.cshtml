@@ -1,0 +1,55 @@
+﻿@model IEnumerable<CNPM.Models.KhachHang>
+    
+
+@{
+    ViewBag.Title = "KhachHang";
+    Layout = "~/Views/Shares/_LayoutAdmin.cshtml";
+}
+@model CNPM.Models.DonDatHang;
+<h2 class="text-center">Khách hàng </h2>
+
+<p>
+    @Html.ActionLink("Create New", "ThemKhachHang")
+</p>
+<table class="table">
+    <tr class="text-center">
+        <th>
+            Tên khách hàng 
+        </th>
+        <th>
+            Địa chỉ 
+        </th>
+        <th>
+            Số điện thoại 
+        </th>
+        <th>
+            Tên đăng nhập 
+        </th>
+        <th>
+            Mật khẩu 
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="text-center">
+        <td>
+            @Html.DisplayFor(modelItem => item.TenKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenDangNhap)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mathau)
+        </td>
+        
+    </tr>
+}
+
+</table>
